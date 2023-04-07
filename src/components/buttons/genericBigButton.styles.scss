@@ -1,0 +1,17 @@
+.buttons_genericBig {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 55px;
+  font-family: "Titan One", cursive;
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  background-color: #ff4433;
+  border: 2px solid black;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: red;
+  }
+}

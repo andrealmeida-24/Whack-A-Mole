@@ -1,9 +1,14 @@
 import React from "react";
+import "./App.scss";
+import GameBoard from "./components/gameBoard/gameBoard";
+import LayoutWrapper from "./components/LayoutWrapper/layoutWrapper";
 
 function App() {
   return (
     <div className="App">
-      <h1>whack a mole</h1>
+      <LayoutWrapper>
+        <GameBoard />
+      </LayoutWrapper>
     </div>
   );
 }
