@@ -6,3 +6,5 @@ export const store = configureStore({
     gameplay: gameplaySlice.reducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
