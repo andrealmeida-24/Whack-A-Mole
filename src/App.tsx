@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import GameBoard from "./components/gameBoard/gameBoard";
+import GameBoard from "./components/GameBoard/gameBoard";
 import LayoutWrapper from "./components/LayoutWrapper/layoutWrapper";
 
 function App() {

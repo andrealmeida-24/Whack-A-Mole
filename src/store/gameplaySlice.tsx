@@ -19,5 +19,11 @@ const initialState: SliceState = {
 export const gameplaySlice = createSlice({
   name: "gameplay",
   initialState,
-  reducers: {},
+  reducers: {
+    incrementScore: (state) => {
+      state.score = state.score + 1;
+    },
+  },
 });
+
+export const { incrementScore } = gameplaySlice.actions;

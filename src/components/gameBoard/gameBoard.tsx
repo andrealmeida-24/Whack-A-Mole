@@ -4,6 +4,7 @@ import "./gameBoard.styles.scss";
 
 import GenericBigButton from "../buttons/genericBigButton";
 import GenericMedButton from "../buttons/genericMedButton";
+import MoleContainer from "../MoleContainer/moleContainer";
 
 export default function GameBoard() {
   const time = useSelector<RootState>((state) => state.gameplay.time);
@@ -18,7 +19,7 @@ export default function GameBoard() {
         <GenericMedButton text="SignIn" onClick={() => null} />
       </div>
       <GenericMedButton text="Leaderboard" onClick={() => null} />
-      <div className="gameBoard-container">{/* <img></img>*/}</div>
+      <MoleContainer />
     </div>
   );
 }
