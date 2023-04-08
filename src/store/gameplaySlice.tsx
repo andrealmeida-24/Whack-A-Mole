@@ -1,26 +1,17 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { RootState } from "./store";
-
-const getRandom = (): number => {
-  return Math.floor(Math.random() * 12 + 1);
-};
+import { createSlice } from "@reduxjs/toolkit";
 
 type SliceState = {
-  time: number;
   score: number;
   activeID: number;
   gameOn: boolean;
   showModal: boolean;
-  timeInterval: number | any;
 };
 
 const initialState: SliceState = {
-  time: 30,
   score: 0,
   activeID: 0,
   gameOn: false,
   showModal: false,
-  timeInterval: 30,
 };
 
 export const gameplaySlice = createSlice({
@@ -41,7 +32,6 @@ export const gameplaySlice = createSlice({
     },
     reset: (state) => {
       state.gameOn = false;
-      state.score = 0;
     },
   },
 });

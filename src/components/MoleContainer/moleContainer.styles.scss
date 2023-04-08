@@ -1,11 +1,10 @@
 .moleContainer {
-  margin: 2rem;
-  padding: 4rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 100px;
-  grid-row-gap: 100px;
+  grid-column-gap: 0px;
+  grid-row-gap: 40px;
   cursor: url("../../assets/WAM_Hammer.png"), pointer;
-  align-items: baseline;
+  align-items: center;
 }

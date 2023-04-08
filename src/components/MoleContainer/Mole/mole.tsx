@@ -4,6 +4,7 @@ import { incrementScore } from "../../../store/gameplaySlice";
 import holeImg from "../../../assets/WAM_Hole.png";
 import moleImg from "../../../assets/WAM_Mole.png";
 import React from "react";
+import "./mole.styles.scss";
 
 interface Props {
   id: number;
@@ -20,11 +21,14 @@ export default function Mole({ id }: Props) {
     }
   };
   return (
-    <div onClick={(e) => handleClick(e)}>
+    <div
+      onClick={(e) => handleClick(e)}
+      className={`mole ${activeID === id ? "" : "holeImg"}`}
+    >
       <img
         src={activeID === id ? moleImg : holeImg}
         className={activeID === id ? moleImg : holeImg}
-        alt="Hole"
+        alt="Mole"
       />
     </div>
   );
