@@ -12,12 +12,11 @@ interface Props {
 export default function Mole({ id }: Props) {
   const dispatch = useDispatch();
   const activeID = useSelector<RootState>((state) => state.gameplay.activeID);
+  const gameOn = useSelector<RootState>((state) => state.gameplay.gameOn);
 
   const handleClick = (e: React.MouseEvent) => {
-    if (activeID === id) {
+    if (activeID === id && gameOn === true) {
       dispatch(incrementScore());
-    }
-    if (activeID !== id) {
     }
   };
   return (
