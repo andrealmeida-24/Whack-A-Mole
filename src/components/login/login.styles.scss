@@ -1,11 +1,28 @@
 .login-container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
 
+  .login-logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      transform: rotate(10deg);
+    }
+
+    .login-logo-text {
+      font-size: 4rem;
+      z-index: 99;
+      transform: translateX(70px);
+    }
+  }
+
   button {
+    margin-top: 2rem;
     padding: 10px 20px;
     font-size: 1rem;
     border-radius: 55px;
@@ -22,5 +39,11 @@
 
       background-color: rgba($color: #0dc458, $alpha: 1);
     }
+  }
+  p {
+    font-family: "Roboto";
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    font-weight: 400;
   }
 }

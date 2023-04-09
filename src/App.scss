@@ -10,7 +10,11 @@ body {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     font-family: "Titan One", cursive;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #fff;
+  }
+
+  .lastSecondsTime {
+    color: red;
   }
 }

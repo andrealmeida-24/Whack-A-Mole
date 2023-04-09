@@ -5,6 +5,7 @@ type SliceState = {
   activeID: number;
   gameOn: boolean;
   showModal: boolean;
+  lastScore: string | number;
 };
 
 const initialState: SliceState = {
@@ -12,6 +13,7 @@ const initialState: SliceState = {
   activeID: 0,
   gameOn: false,
   showModal: false,
+  lastScore: "N/A",
 };
 
 export const gameplaySlice = createSlice({
@@ -32,9 +34,22 @@ export const gameplaySlice = createSlice({
     },
     reset: (state) => {
       state.gameOn = false;
+      state.score = 0;
+    },
+    controlModal: (state, action) => {
+      state.showModal = action.payload;
+    },
+    setLastScore: (state, action) => {
+      state.lastScore = action.payload;
     },
   },
 });
 
-export const { incrementScore, getRandomID, gameOn, reset } =
-  gameplaySlice.actions;
+export const {
+  incrementScore,
+  getRandomID,
+  gameOn,
+  reset,
+  controlModal,
+  setLastScore,
+} = gameplaySlice.actions;

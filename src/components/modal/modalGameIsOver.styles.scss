@@ -1,0 +1,22 @@
+.gameIsOver-text {
+  .gameIsOver-h1 {
+    font-size: 3rem;
+  }
+
+  .gameIsOver-score {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .gameIsOver_Score {
+      font-size: 5rem;
+      margin-bottom: 90%;
+      color: yellow;
+    }
+
+    .goodScore {
+      color: greenyellow;
+    }
+  }
+}

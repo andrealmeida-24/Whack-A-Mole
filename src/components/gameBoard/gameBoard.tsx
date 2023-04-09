@@ -1,6 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
-import { gameOn, getRandomID, reset } from "../../store/gameplaySlice";
+import {
+  gameOn,
+  getRandomID,
+  reset,
+  controlModal,
+  setLastScore,
+} from "../../store/gameplaySlice";
 import "./gameBoard.styles.scss";
 
 import GenericBigButton from "../buttons/genericBigButton";
@@ -10,6 +16,8 @@ import { useEffect, useState } from "react";
 import { auth, db } from "../../utils/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { signOut } from "firebase/auth";
+import ModalLeaderboard from "../modal/modalLeaderboard";
+import ModalGameIsFinished from "../modal/modalGameIsFinished";
 
 export default function GameBoard() {
   const [count, setCount] = useState(30);
@@ -18,10 +26,16 @@ export default function GameBoard() {
   const dispatch = useDispatch();
   const isGameOn = useSelector<RootState>((state) => state.gameplay.gameOn);
   const score = useSelector<RootState>((state) => state.gameplay.score);
+  const showModal = useSelector<RootState>((state) => state.gameplay.showModal);
+  const lastScore = useSelector<RootState>((state) => state.gameplay.lastScore);
 
   const handleStart = () => {
     dispatch(gameOn());
     setStart(!start);
+  };
+
+  const handleOpenModal = () => {
+    dispatch(controlModal(true));
   };
 
   const submit = async () => {
@@ -51,6 +65,7 @@ export default function GameBoard() {
       }, 1000);
     } else if (count === 0) {
       setCount(30);
+      dispatch(setLastScore(score));
       dispatch(reset());
       setStart(false);
       setIsGameFinished(true);
@@ -76,16 +91,28 @@ export default function GameBoard() {
 
   return (
     <div className="gameBoard">
+      <>{showModal && <ModalLeaderboard />}</>
+      <>
+        {isGameFinished && (
+          <ModalGameIsFinished setIsGameFinished={setIsGameFinished} />
+        )}
+      </>
       <h1 className="gameBoard_currentUser">{auth.currentUser?.displayName}</h1>
-      <h1>{`Time: ${count}`}</h1>
+      <h1>
+        Time:
+        <span className={count < 6 ? "lastSecondsTime" : ""}> {count}</span>
+      </h1>
       <h1>{`Score: ${score}`}</h1>
+      <h1>{`Last Score: ${lastScore} `}</h1>
       <div onClick={() => handleStart()}>
-        <GenericBigButton text={start === false ? "Start" : "Reset"} />
+        <GenericBigButton text={start === false ? "Start" : "Stop"} />
       </div>
       <div className="gameBoard_auth-container" onClick={signOutUser}>
         <GenericMedButton text="SignOut" />
       </div>
-      <GenericMedButton text="Leaderboard" />
+      <div onClick={handleOpenModal}>
+        <GenericMedButton text="Leaderboard" />
+      </div>
       <MoleContainer />
     </div>
   );
