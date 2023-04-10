@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "./utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import GameBoard from "./components/GameBoard/gameBoard";
+import GameBoard from "./components/gameBoard/gameBoard";
 import LayoutWrapper from "./components/LayoutWrapper/layoutWrapper";
 import Loader from "./components/loader/loader";
 import "./App.scss";
