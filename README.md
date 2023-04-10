@@ -1,7 +1,7 @@
 # Welcome to Wack-A-Mole Game!
 
 This project is a **Whack-A-Mole Game** created with React, TypeScript, Google Firebase Authentication, and Redux Toolkit.
-Due to the shortage of time to build a complete project, I couldn't add any tests or mobile responsiveness to this App.
+Due to the shortage of time to build a complete project, I couldn't add extended tests or mobile responsiveness to this App.
 
 # Run the App Locally
 
