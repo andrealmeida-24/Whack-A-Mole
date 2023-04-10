@@ -12,12 +12,21 @@
 
     img {
       transform: rotate(10deg);
+
+      @media screen and (max-width: 767px) {
+        width: 40%;
+      }
     }
 
     .login-logo-text {
       font-size: 4rem;
       z-index: 99;
       transform: translateX(70px);
+
+      @media screen and (max-width: 767px) {
+        font-size: 2.5rem;
+        transform: translateX(55px);
+      }
     }
   }
 
